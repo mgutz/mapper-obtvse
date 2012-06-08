@@ -1,0 +1,26 @@
+PATH=node_modules/.bin:$PATH
+
+
+#. (Re)create database
+function create_db {
+    node migrations/bootstrap.js -d mapper_blog -u foo -p password
+    up
+}
+
+
+#. Migrate up
+function up {
+    mygrate up $@
+}
+
+
+#. Migrate down
+function down {
+    mygrate down $@
+}
+
+
+#. Runs the server
+function run {
+    NODE_ENV=development supervisor -e js app
+}
