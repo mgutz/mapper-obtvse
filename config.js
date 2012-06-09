@@ -33,7 +33,15 @@ var config = {
 };
 
 
-global.APP = {};
+/**
+ * Create APP container.
+ */
 
+global.APP = {};
 var Settings = require('settings');
 global.APP.config = new Settings(config);
+
+var winston = require('winston');
+APP.getLogger = function() {
+  return winston;
+}

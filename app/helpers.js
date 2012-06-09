@@ -7,8 +7,9 @@ function Helpers() {
     var app = options.app;
 
     // HTML helpers
-    app.locals.H = {};
-    app.locals.H.formatDate = date.formatDate;
+    app.locals.H = {
+      formatDate: date.formatDate
+    };
   }
 }
 

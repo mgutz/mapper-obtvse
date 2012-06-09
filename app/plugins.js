@@ -1,5 +1,6 @@
 var async = require('async');
 var plugins = require('./plugins');
+var log = APP.getLogger();
 
 /**
  * Attaches one or more plugins serially to express app.
@@ -13,20 +14,20 @@ exports.attach = function(options, done) {
   function loadPlugin(plugin, cb) {
     if (plugin.attach.length === 1)  {
       plugin.attach({app: app});
-      if (plugin.name) console.log('LOADED plugin', plugin.name);
+      if (plugin.name) log.info('LOADED plugin', plugin.name);
       cb();
     }
     else {
       plugin.attach({app: app}, function(err) {
         if (err) return cb(err);
-        if (plugin.name) console.log('LOADED plugin', plugin.name);
+        if (plugin.name) log.info('LOADED plugin', plugin.name);
         cb();
       });
     }
   }
 
   async.forEachSeries(plugins, loadPlugin, function(err) {
-    if (err) console.error('ERROR ', err);
+    if (err) log.error(err);
     done(err);
   });
 };

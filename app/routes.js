@@ -24,14 +24,12 @@ function Routes() {
     app.post('/post/save', secure, posts.save);
     app.post('/post/update/:id', secure, posts.update);
 
-    // Routes :: controller :: admin
 
     app.get('/admin', secure, admin.index);
     app.get('/admin/login', admin.login);
     app.get('/admin/logout', admin.logout);
     app.post('/admin/login', admin.postLoginData);
   };
-
 }
 
 module.exports = Routes;
