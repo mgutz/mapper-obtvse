@@ -17,7 +17,6 @@ exports.index = function(req, res, next) {
     res.render('admin-backend', {
       drafts: posts.drafts,
       publish: posts.published,
-      layout: 'admin-layout'
     })
   })
 }
@@ -29,7 +28,6 @@ exports.index = function(req, res, next) {
 
 exports.login = function(req, res) {
   res.render('admin-login', {
-    layout: 'admin-layout'
   });
 }
 
@@ -59,7 +57,6 @@ exports.postLoginData = function(req, res) {
   else {
     res.render('admin-login', {
       error: 'Bad login',
-      layout: 'admin-layout'
     });
   }
 };

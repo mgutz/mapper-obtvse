@@ -5,5 +5,6 @@ CREATE TABLE Posts (
   contentHtml TEXT,
   contentMarkup TEXT,
   published TINYINT(1),
+  deleted TINYINT(1),
   created TIMESTAMP
 ) ENGINE = InnoDB;

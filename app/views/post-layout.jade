@@ -11,13 +11,12 @@ html
       span Blog
       ul
         li
-          a(href='https://twitter.com/#!/albohlabs', target='_blank') twitter
-        li
-          a(href='https://plus.google.com/u/0/107422778697510876292/posts', target='_blank') g+
+          a(href='https://twitter.com/#!/gitfunding', target='_blank') twitter
       span.powered-by Powered by
         a(href='http://nodejs.org/', target='_blank') Node.js
         &nbsp;·
         a(href='/admin') Admin
-    body!= body
+    body
+      block body
     script(src='/javascripts/jquery-1.7.2.js')
     script(src='/javascripts/script.js')

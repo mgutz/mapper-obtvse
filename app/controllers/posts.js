@@ -46,8 +46,7 @@ exports.index = function(req, res, next) {
           next: page + 1,
           prev: page - 1
         },
-        layout: 'post-layout',
-        date: date.getDate()
+        date: date.formatDate()
       });
     }
 
@@ -75,7 +74,6 @@ exports.single = function(req, res, next) {
       res.render('post-single', {
         post: post,
         isAuth: req.session.authenticated,
-        layout: 'post-layout'
       });
     }
     else {
@@ -118,7 +116,6 @@ this.remove = function(req, res, next) {
 
 this.create = function(req, res, next) {
   res.render('post-create', {
-    layout: 'admin-layout',
     title: req.param('title') || ''
   });
 }
@@ -130,7 +127,6 @@ this.create = function(req, res, next) {
 this.edit = function(req, res, next) {
   Post.findById(req.param('id'), function(err, post) {
     res.render('post-edit', {
-      layout: 'admin-layout',
       post: post
     })
   });
