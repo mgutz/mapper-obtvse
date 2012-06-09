@@ -36,7 +36,7 @@ app.use(express.errorHandler(APP.config.express.errorHandlerOptions));
 // Routes :: controller :: posts
 
 app.get('/', posts.index);
-app.get('/page/:count', posts.index);
+app.get('/page/:num', posts.index);
 
 app.get('/post/single/:id', posts.single);
 app.get('/post/preview/:id', secure, posts.preview);

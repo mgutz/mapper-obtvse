@@ -9,7 +9,6 @@ var Post = require('../models/post');
 /**
  * GET login page
  */
-
 exports.index = function(req, res, next) {
   Post.getDraftsAndPublished(function(err, posts) {
     if (err) return next(err);
@@ -25,7 +24,6 @@ exports.index = function(req, res, next) {
 /**
  * GET login form
  */
-
 exports.login = function(req, res) {
   res.render('admin-login', {
   });
@@ -35,7 +33,6 @@ exports.login = function(req, res) {
 /**
  * GET logout page and redirect
  */
-
 exports.logout = function(req, res) {
   req.logout();
   res.redirect('/admin');
@@ -45,7 +42,6 @@ exports.logout = function(req, res) {
 /**
  * POST login
  */
-
 exports.postLoginData = function(req, res) {
   var user = APP.config.admin.user;
   var password = APP.config.admin.password;
