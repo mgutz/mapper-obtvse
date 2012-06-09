@@ -7,3 +7,5 @@ Mapper.connect(config[APP.config.ENV].mysql, {verbose: true});
 module.exports = {
   PostDao: Mapper.map('Posts')
 };
+
+

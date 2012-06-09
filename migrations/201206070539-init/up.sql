@@ -1,10 +1,29 @@
-CREATE TABLE Posts (
-  id INT(11) AUTO_INCREMENT PRIMARY KEY,
-  titleHtml VARCHAR(255),
-  titleMarkup VARCHAR(255),
-  contentHtml TEXT,
-  contentMarkup TEXT,
-  published TINYINT(1),
-  deleted TINYINT(1),
+create table Posts (
+  id int(11) auto_increment primary key,
+  titleHtml varchar(255),
+  titleMarkup varchar(255),
+  contentHtml text,
+  contentMarkup text,
+  published tinyint(1),
+  deleted tinyint(1),
+  created timestamp
+) engine = innodb;
+
+create table Comments (
+  id int auto_increment primary key,
+  postId int references Posts(id),
+  comment varchar(140),
   created TIMESTAMP
-) ENGINE = InnoDB;
+); -- comments don't need to be in innodb
+
+
+create table Users (
+  id int auto_increment primary key,
+  userName varchar(32),
+  password varchar(32),
+  displayName varchar(128),
+  oauthId varchar(32),
+  oauthHandle varchar(32),  -- usually the user name but this varies
+  oauthProvider char(1),    -- t = twitter
+  created timestamp
+) engine = innodb;

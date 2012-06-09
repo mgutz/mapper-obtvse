@@ -54,7 +54,7 @@ exports.getAll = function(cb) {
 
 
 /**
- * update post
+ * Updates a post.
  *
  * @param singlePost
  * @param callback
@@ -66,7 +66,7 @@ exports.update = function(id, obj, cb) {
 
 
 /**
- * remove a item
+ * Rmoves an item.
  *
  * @param postId
  * @param callback
